@@ -1,0 +1,754 @@
+
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: #171E25;
+    color: #F3EBDD;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            #789B9A,
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            #C7B8D9,
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at 50% 50%,
+            #354D55,
+            transparent 65%
+        ),
+        linear-gradient(
+            135deg,
+            #171E25,
+            #263A43,
+            #171E25
+        );
+}
+
+
+.hero::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background: #F3EBDD12;
+
+    filter: blur(30px);
+}
+
+
+/* =========================
+   HERO CONTENT
+========================= */
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 900px;
+
+    animation: fadeIn 1.5s ease;
+}
+
+
+.small-title {
+    letter-spacing: 6px;
+
+    font-size: 13px;
+
+    color: #D6B878;
+
+    margin-bottom: 25px;
+}
+
+
+h1 {
+    font-size: clamp(45px, 8vw, 90px);
+
+    line-height: 1.05;
+
+    font-weight: 400;
+
+    margin-bottom: 25px;
+
+    background: linear-gradient(
+        90deg,
+        #F3EBDD,
+        #D6B878,
+        #FFFFFF,
+        #D6B878
+    );
+
+    background-size: 200%;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: shine 5s linear infinite;
+}
+
+
+.age {
+    font-size: 28px;
+
+    color: #E5E1D8;
+
+    margin-bottom: 10px;
+}
+
+
+#age,
+#age-2 {
+    color: #D6B878;
+
+    font-weight: bold;
+}
+
+
+.birthday-date {
+    color: #A9C5D0;
+
+    font-size: 16px;
+
+    margin-bottom: 35px;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.button {
+    display: inline-block;
+
+    padding: 14px 30px;
+
+    border: 1px solid #D6B878;
+
+    border-radius: 50px;
+
+    color: #F3EBDD;
+
+    text-decoration: none;
+
+    transition: .3s;
+
+    background: #F3EBDD10;
+
+    backdrop-filter: blur(10px);
+}
+
+
+.button:hover {
+    background: #D6B878;
+
+    color: #171E25;
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 30px #D6B87855;
+}
+
+
+/* =========================
+   GALLERY SECTION
+========================= */
+
+.gallery-section {
+    padding: 100px 7%;
+
+    background: #202B32;
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+
+.gallery-section h2 {
+    font-size: 42px;
+
+    font-weight: 400;
+
+    margin-bottom: 15px;
+
+    color: #F3EBDD;
+}
+
+
+.section-description {
+    color: #A9C5D0;
+
+    margin-bottom: 50px;
+}
+
+
+/* =========================
+   GALLERY VIEWPORT
+========================= */
+
+.gallery {
+    width: 100%;
+
+    max-width: 1100px;
+
+    margin: 50px auto;
+
+    overflow: hidden;
+
+    position: relative;
+}
+
+
+/* =========================
+   TRACK
+========================= */
+
+.gallery-track {
+    display: flex;
+
+    width: max-content;
+
+    animation:
+        infiniteSlide 22s linear infinite;
+}
+
+
+/* =========================
+   GROUP
+========================= */
+
+.gallery-group {
+    display: flex;
+
+    gap: 20px;
+
+    padding-right: 20px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================
+   PHOTO CARD
+========================= */
+
+.photo-card {
+    flex: 0 0 280px;
+
+    width: 280px;
+
+    height: 350px;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    background: #263A43;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.4);
+
+    border: 1px solid #D6B87830;
+}
+
+
+/* =========================
+   IMAGE
+========================= */
+
+.photo-card img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition:
+        transform 0.5s ease;
+}
+
+
+/* =========================
+   IMAGE HOVER
+========================= */
+
+.photo-card:hover img {
+    transform: scale(1.08);
+}
+
+
+/* =========================
+   INFINITE ANIMATION
+========================= */
+
+@keyframes infiniteSlide {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+
+}
+
+
+/* =========================
+   STORY
+========================= */
+
+.story {
+    padding: 120px 20px;
+
+    background:
+        linear-gradient(
+            #171E25,
+            #263A43,
+            #171E25
+        );
+
+    display: flex;
+
+    justify-content: center;
+}
+
+
+.story-card {
+    max-width: 850px;
+
+    text-align: center;
+
+    padding: 60px 30px;
+
+    border-top: 1px solid #D6B878;
+
+    border-bottom: 1px solid #D6B878;
+}
+
+
+.story-card p {
+    font-size: clamp(22px, 4vw, 36px);
+
+    line-height: 1.7;
+
+    font-style: italic;
+
+    color: #F3EBDD;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 35px;
+
+    text-align: center;
+
+    color: #A9C5D0;
+
+    font-size: 14px;
+
+    background: #171E25;
+}
+
+
+/* =========================
+   GENERAL ANIMATION
+========================= */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+
+@keyframes shine {
+
+    0% {
+        background-position: 0%;
+    }
+
+    100% {
+        background-position: 200%;
+    }
+
+}
+
+
+/* =========================
+   PHOTO POPUP
+========================= */
+
+.photo-modal {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: rgba(15, 23, 29, 0.94);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 30px;
+
+    z-index: 9999;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: 0.3s ease;
+}
+
+
+.photo-modal.active {
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* =========================
+   MODAL CONTENT
+========================= */
+
+.modal-content {
+    position: relative;
+
+    max-width: 900px;
+
+    width: 100%;
+
+    text-align: center;
+
+    animation:
+        popupImage 0.4s ease;
+}
+
+
+/* =========================
+   MODAL IMAGE
+========================= */
+
+.modal-content img {
+    display: block;
+
+    width: auto;
+
+    max-width: 100%;
+
+    max-height: 75vh;
+
+    margin: auto;
+
+    object-fit: contain;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.6);
+
+    border: 1px solid #D6B87850;
+}
+
+
+/* =========================
+   MODAL CAPTION
+========================= */
+
+#modalCaption {
+    margin-top: 20px;
+
+    color: #D6B878;
+
+    font-size: 18px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+
+.close-btn {
+    position: absolute;
+
+    top: -50px;
+
+    right: 0;
+
+    width: 42px;
+
+    height: 42px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        rgba(243, 235, 221, 0.12);
+
+    color: #F3EBDD;
+
+    font-size: 30px;
+
+    line-height: 40px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.close-btn:hover {
+    background: #D6B878;
+
+    color: #171E25;
+
+    transform: rotate(90deg);
+}
+
+
+/* =========================
+   POPUP ANIMATION
+========================= */
+
+@keyframes popupImage {
+
+    from {
+        opacity: 0;
+
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: scale(1);
+    }
+
+}
+
+
+/* =========================
+   AUDIO
+========================= */
+
+div.audio {
+    position: fixed;
+
+    bottom: 20px;
+
+    right: 20px;
+
+    z-index: 1000;
+}
+
+
+/* =========================
+   BACK BUTTON
+========================= */
+
+div.back-button-container a {
+    position: fixed;
+
+    top: 20px;
+
+    left: 20px;
+
+    z-index: 1000;
+
+    color: #F3EBDD;
+
+    text-decoration: none;
+
+    transition: .3s;
+}
+
+
+div.back-button-container a:hover {
+    color: #D6B878;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 800px) {
+
+    .photo-card {
+        flex: 0 0 240px;
+
+        width: 240px;
+
+        height: 300px;
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 500px) {
+
+    .hero {
+        min-height: 90vh;
+    }
+
+
+    h1 {
+        font-size: 45px;
+    }
+
+
+    .age {
+        font-size: 23px;
+    }
+
+
+    .gallery-section {
+        padding: 70px 20px;
+    }
+
+
+    .gallery-section h2 {
+        font-size: 32px;
+    }
+
+
+    .gallery-group {
+        gap: 15px;
+
+        padding-right: 15px;
+    }
+
+
+    .gallery-track {
+        animation-duration: 18s;
+    }
+
+
+    .photo-card {
+        flex: 0 0 210px;
+
+        width: 210px;
+
+        height: 270px;
+    }
+
+
+    .story {
+        padding: 80px 20px;
+    }
+
+
+    .photo-modal {
+        padding: 20px;
+    }
+
+
+    .modal-content img {
+        max-height: 70vh;
+    }
+
+
+    .close-btn {
+        top: -50px;
+
+        right: 0;
+    }
+
+}
+
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+}
